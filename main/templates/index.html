@@ -1,0 +1,226 @@
+{% extends "core/user_base.html" %}
+
+{% block css %}
+            <style>
+
+
+
+            #slider{
+
+            }
+            .features{
+                padding:20px 0;
+            }
+
+            .features .col-sm-3 i{
+                font-size: 70px;
+                background-color: #6BBC46;
+                padding: 20px;border-radius: 50%;
+                width:110px;
+                color:#fff;
+
+                transition: color .4s;
+                -webkit-transition: color .4s;
+            }
+            .features .col-sm-3 i:hover{
+                color:#F2EC1C;
+
+            }
+            .features h2{
+                color:#17A750;
+                padding-bottom: 20px;
+            }
+            .icon-box{
+                margin: 10px 30px;;
+                border: 2px solid #28A9E3;
+                border-radius: 5px;
+                height:200px;
+                padding: 5px;
+                position: relative;
+                background-color: #fff;
+            }
+            .icon-box h1{
+                margin-top: 10px;
+                font-weight: 700;
+            }
+            .icon-box p {
+                position: absolute;
+                bottom: 0px;
+                font-size: 18px;
+                text-align: center;
+                width:95%;
+            }
+            .icon-box p a{
+                color:#333;
+            }
+            .icon-box p a:hover{
+                color:#17A750;
+            }
+            .notification {
+                background-color: #f0f0f0;
+                padding: 30px 0;
+            }
+            .event{
+                background-color: #949494;
+                padding: 30px 0;
+
+            }
+            .event .header h2{
+                color:#fff;
+            }
+
+            .notification .header h2{
+                color:#17A750;
+                padding-bottom: 20px;
+            }
+            .text{
+                margin: 10px;
+                min-height:100px;
+                padding: 10px;
+                background-color: #fff;
+                border-radius: 5px;
+                min-height:130px;
+            }
+            footer{
+                padding: 30px 0;
+            }
+            #registration{
+                padding: 20px 0;
+            }
+            #registration a{
+                color:#333;
+                text-decoration: underline;
+            }
+            #box{
+                border: 1px solid rgb(200, 200, 200);
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+                background: rgba(200, 200, 200, 0.1);
+                border-radius: 4px;
+                top:50px;
+                margin-bottom: 50px;
+
+            }
+
+            h2{
+                text-align:center;
+            }
+            fieldset{
+                border:none;
+                padding:5px;
+            }
+        </style>
+
+{% endblock %}
+
+{% block user %}
+
+        <section class="features">
+            <div class="container text-center">
+                <h2>Register for NSS 2018</h2>
+                <div class="col-sm-3">
+                    <div class="icon-box">
+                        <h1><i class="fa fa-bookmark" aria-hidden="true"></i></h1>
+                        <p>
+                             <a href="mailto:2017solar@gmail.com">Free Registration </a>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="col-sm-3">
+                    <div class="icon-box">
+                        <h1><i class="fa fa-plane" aria-hidden="true"></i></h1>
+                        <p>
+                            Win a Trip to India
+
+                        </p>
+                    </div>
+
+                </div>
+                <div class="col-sm-3">
+                    <div class="icon-box">
+                        <h1><i class="fa fa-gift" aria-hidden="true"></i></h1>
+                        <p>
+                            Special gifts for the participants
+                        </p>
+                    </div>
+
+                </div>
+                <div class="col-sm-3">
+                    <div class="icon-box">
+                        <h1><i class="fa fa-picture-o" aria-hidden="true"></i></h1>
+                        <p>
+                            Send your  photos to win some prize
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row" >
+                    <a class="btn btn-success" href="{% url 'main:create_user' %}">Register</a>
+                </div>
+            </div>
+        </section>
+        <section class="event">
+            <div class="container">
+                <div class="text-center header">
+                    <h2>Events</h2>
+                </div>
+                <div class="row">
+                    {% for eve in event %}
+                        <div class="col-sm-4">
+                            <div class="text">
+                                <h4>{{ eve.name }}</h4>
+                                <p>
+                                    {{ eve.description }}
+                                </p>
+
+                            </div>
+                        </div>
+
+                    {% if forloop.counter|divisibleby:"3"%}
+                        </div>
+                        <div class="row">
+                    {% endif %}
+                    {% if forloop.last  %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="notification">
+            <div class="container">
+                <div class="text-center header">
+                    <h2>Notification</h2>
+                </div>
+                <div class="row">
+                    {% for note in notification %}
+                        <div class="col-sm-4">
+                            <div class="text">
+                                <h4>{{ note.name }}</h4>
+                                <p>
+                                    {{ note.description }}
+                                </p>
+
+                            </div>
+                        </div>
+
+                    {% if forloop.counter|divisibleby:"3"%}
+                        </div>
+                        <div class="row">
+                    {% endif %}
+                    {% if forloop.last  %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        <section id="registration">
+            <div class="container text-center">
+                Mail us on <a href="mailto:info@daranya.in" >info@daranya.in</a> for Free registration till 15 Aug, 2017 or
+                 <a href="{% url 'main:create_user' %}" style="width:200px;margin-top: 30px;" >register now.</a>
+            </div>
+
+        </section>
+
+
+{% endblock %}
