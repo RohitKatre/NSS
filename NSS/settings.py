@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#jy3ndx4ouxc95n-v$6*t(xi(w_5py9x@tb50*q5k=79$hg#h5'
+# SECRET_KEY = '#jy3ndx4ouxc95n-v$6*t(xi(w_5py9x@tb50*q5k=79$hg#h5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -75,29 +75,29 @@ WSGI_APPLICATION = 'NSS.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd5hh6vlu6v63r6',
-        'USER': 'uubsifdgrrzanp',
-        'PASSWORD': 'e1638549cc4f0561fee5d455edd66835c39af2661a488c66f60bd29722692c88',
-        'HOST': 'ec2-50-16-241-91.compute-1.amazonaws.com',
-        'PORT': '5432',
-
-    }
-
-}
-# SECRET_KEY = config('SECRET_KEY')
-# DEBUG = config('DEBUG', default=False, cast=bool)
 # DATABASES = {
-#     'default': dj_database_url.config(
-#         default=config('DATABASE_URL')
-#     )
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.sqlite3',
+#     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     # }
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd5hh6vlu6v63r6',
+#         'USER': 'uubsifdgrrzanp',
+#         'PASSWORD': 'e1638549cc4f0561fee5d455edd66835c39af2661a488c66f60bd29722692c88',
+#         'HOST': 'ec2-50-16-241-91.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#
+#     }
+#
 # }
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
