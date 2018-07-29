@@ -25,7 +25,7 @@ SECRET_KEY = '#jy3ndx4ouxc95n-v$6*t(xi(w_5py9x@tb50*q5k=79$hg#h5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['daranya-nss.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition
