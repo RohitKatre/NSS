@@ -6,3 +6,5 @@ admin.site.register(User)
 admin.site.register(Evenet)
 admin.site.register(Notification)
 admin.site.register(Payment)
+
+admin.site.site_header = 'NSS Administration'
